@@ -40,6 +40,11 @@ def log_message(message, player_type="Everyone"):
         LOG_FIELD.insert(END, message + "\n")
         LOG_FIELD.configure(state=DISABLED)
 
+def clear_log():
+    LOG_FIELD.configure(state=NORMAL)
+    LOG_FIELD.delete(1.0, END)
+    LOG_FIELD.configure(state=DISABLED)
+
 def player_move_log(c):
     log_message(f"Игрок выстрелил в клетку: {c.x},{c.y}")
 
