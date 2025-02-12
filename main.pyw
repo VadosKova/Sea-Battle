@@ -6,7 +6,7 @@ from time import sleep
 # Конфигурация окна
 BSIZE = 20  # Размер клетки поля
 FSTEP = 30  # Отступ между полями
-WIDTH = FSTEP * 3 + BSIZE * S * 2
+WIDTH = FSTEP * 3 + BSIZE * S * 4
 HEIGHT = FSTEP * 3 + BSIZE * S + 200
 
 root = Tk()
@@ -323,18 +323,19 @@ GIVE_UP.place(x=WIDTH-FSTEP-130, y=FSTEP)
 NEW_GAME = Button(command=newGame, bg=MENU_COLOR, text='Новая игра')
 NEW_GAME.place(x=WIDTH-FSTEP-70, y=FSTEP)
 
+button_width = 20
 
-clear_log_button = Button(root, text="Clear log", command=clear_log)
-clear_log_button.place(x=FSTEP + 250, y=FSTEP * 2 + BSIZE * S + 10)
+clear_log_button = Button(root, text="Clear log", width= button_width, command=clear_log)
+clear_log_button.place(x=FSTEP, y=FSTEP * 2 + BSIZE * S + 10)
 
-filter_player_button = Button(root, text="Filter by Player", command=filter_player_logs)
-filter_player_button.place(x=FSTEP, y=FSTEP * 2 + BSIZE * S + 10)
+filter_player_button = Button(root, text="Filter by Player", width=button_width, command=filter_player_logs)
+filter_player_button.place(x=FSTEP + 150, y=FSTEP * 2 + BSIZE * S + 10)
 
-filter_comp_button = Button(root, text="Filter by Comp", command=filter_comp_logs)
-filter_comp_button.place(x=FSTEP + 200, y=FSTEP * 2 + BSIZE * S + 10)
+filter_comp_button = Button(root, text="Filter by Comp", width=button_width, command=filter_comp_logs)
+filter_comp_button.place(x=FSTEP + 300, y=FSTEP * 2 + BSIZE * S + 10)
 
-clear_filter_button = Button(root, text="Reset filter", command=clear_filter)
-clear_filter_button.place(x=FSTEP + 400, y=FSTEP * 2 + BSIZE * S + 10)
+clear_filter_button = Button(root, text="Reset filter", width=button_width, command=clear_filter)
+clear_filter_button.place(x=FSTEP + 450, y=FSTEP * 2 + BSIZE * S + 10)
 
 # Player buttons
 PBUTTONS = []
