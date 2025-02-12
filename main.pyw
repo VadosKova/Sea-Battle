@@ -29,13 +29,16 @@ COMP_SCORE = 0
 IS_GAME_OVER = False
 
 LOG_FIELD = Text(root, height=10, width=50, wrap=WORD, bg='lightgray', state=DISABLED)
-LOG_FIELD.place(x=FSTEP, y=FSTEP * 2 + BSIZE * S + 20)
+LOG_FIELD.place(x=FSTEP, y=FSTEP * 2 + BSIZE * S + 50)
+
+current_filter = "Everyone"
 
 
-def log_message(message):
-    LOG_FIELD.configure(state=NORMAL)
-    LOG_FIELD.insert(END, message + "\n")
-    LOG_FIELD.configure(state=DISABLED)
+def log_message(message, player_type="Everyone"):
+    if current_filter == "Everyone" or current_filter == player_type:
+        LOG_FIELD.configure(state=NORMAL)
+        LOG_FIELD.insert(END, message + "\n")
+        LOG_FIELD.configure(state=DISABLED)
 
 def player_move_log(c):
     log_message(f"Игрок выстрелил в клетку: {c.x},{c.y}")
@@ -214,7 +217,6 @@ def compMove():
     продолжает ход"""
     c = smartShoot(PL_SHIPS, COMP_HIT_CELLS)
     COMP_HIT_CELLS.add(c)
-    comp_move_log(c)
     if shoot(PL_SHIPS, PBUTTONS, c):
         for n in c.neibs(DIAG):
             COMP_HIT_CELLS.add(n)
