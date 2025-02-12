@@ -7,7 +7,7 @@ from time import sleep
 BSIZE = 20  # Размер клетки поля
 FSTEP = 30  # Отступ между полями
 WIDTH = FSTEP * 3 + BSIZE * S * 2
-HEIGHT = FSTEP * 3 + BSIZE * S
+HEIGHT = FSTEP * 3 + BSIZE * S + 200
 
 root = Tk()
 root.title('SeaBattle by Stiller')
@@ -29,7 +29,7 @@ COMP_SCORE = 0
 IS_GAME_OVER = False
 
 LOG_FIELD = Text(root, height=10, width=50, wrap=WORD, bg='lightgray', state=DISABLED)
-LOG_FIELD.place(x=FSTEP, y=FSTEP + 50)
+LOG_FIELD.place(x=FSTEP, y=FSTEP * 2 + BSIZE * S + 20)
 
 
 def log_message(message):
@@ -89,6 +89,9 @@ def oppFieldPress(cords):
     GIVE_UP.configure(state=NORMAL)
     COMP_FIRST_B.configure(state=DISABLED)
     EBUTTONS[c.y][c.x].configure(state=DISABLED)
+
+    player_move_log(c)
+
     if not shoot(COMP_SHIPS, EBUTTONS, c):
         compMove()
     else:
