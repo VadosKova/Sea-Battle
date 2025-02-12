@@ -45,6 +45,18 @@ def clear_log():
     LOG_FIELD.delete(1.0, END)
     LOG_FIELD.configure(state=DISABLED)
 
+def filter_player_logs():
+    global current_filter
+    current_filter = "Player"
+    clear_log()
+    log_message("Filter: Player", player_type="Everyone")
+
+def filter_comp_logs():
+    global current_filter
+    current_filter = "Computer"
+    clear_log()
+    log_message("Filter: Computer", player_type="Everyone")
+
 def player_move_log(c):
     log_message(f"Игрок выстрелил в клетку: {c.x},{c.y}")
 
