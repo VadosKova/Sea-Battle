@@ -37,6 +37,12 @@ def log_message(message):
     LOG_FIELD.insert(END, message + "\n")
     LOG_FIELD.configure(state=DISABLED)
 
+def player_move_log(c):
+    log_message(f"Игрок выстрелил в клетку: {c.x},{c.y}")
+
+def comp_move_log(c):
+    log_message(f"Компьютер выстрелил в клетку: {c.x},{c.y}")
+
 def youWin():
     global PL_SCORE
     PL_SCORE += 1
