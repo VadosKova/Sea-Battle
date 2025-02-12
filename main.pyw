@@ -32,6 +32,11 @@ LOG_FIELD = Text(root, height=10, width=50, wrap=WORD, bg='lightgray', state=DIS
 LOG_FIELD.place(x=FSTEP, y=FSTEP + 50)
 
 
+def log_message(message):
+    LOG_FIELD.configure(state=NORMAL)
+    LOG_FIELD.insert(END, message + "\n")
+    LOG_FIELD.configure(state=DISABLED)
+
 def youWin():
     global PL_SCORE
     PL_SCORE += 1
