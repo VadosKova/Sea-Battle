@@ -28,6 +28,9 @@ PL_SCORE = 0
 COMP_SCORE = 0
 IS_GAME_OVER = False
 
+LOG_FIELD = Text(root, height=10, width=50, wrap=WORD, bg='lightgray', state=DISABLED)
+LOG_FIELD.place(x=FSTEP, y=FSTEP + 50)
+
 
 def youWin():
     global PL_SCORE
