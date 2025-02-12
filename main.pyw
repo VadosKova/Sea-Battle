@@ -214,6 +214,7 @@ def compMove():
     продолжает ход"""
     c = smartShoot(PL_SHIPS, COMP_HIT_CELLS)
     COMP_HIT_CELLS.add(c)
+    comp_move_log(c)
     if shoot(PL_SHIPS, PBUTTONS, c):
         for n in c.neibs(DIAG):
             COMP_HIT_CELLS.add(n)
